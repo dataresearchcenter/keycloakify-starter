@@ -9,9 +9,9 @@
 
 import { lazy, Suspense, type ReactNode } from "react";
 
-export type ThemeName = "openaleph";
+export type ThemeName = "darc";
 
-export const themeNames: ThemeName[] = ["openaleph"];
+export const themeNames: ThemeName[] = ["darc"];
 
 /**
  * NOTE: Do not import this type except maybe in your entrypoint.

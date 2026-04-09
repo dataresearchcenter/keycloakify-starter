@@ -121,8 +121,8 @@
 
 .darc-alert--error {
   background: var(--color-error-bg);
-  color: var(--color-error);
-  border: 1px solid rgba(212, 19, 13, 0.2);
+  color: #ffb3b3;
+  border: 1px solid rgba(255, 179, 179, 0.3);
 }
 
 .darc-alert--warning {

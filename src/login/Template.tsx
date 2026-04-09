@@ -32,7 +32,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                 <div className="darc-header-inner">
                     <div className="darc-header-brand">
                         <DarcLogo size={32} />
-                        <span className="darc-header-name">OpenAleph</span>
+                        <span className="darc-header-name">Darc Knights</span>
                     </div>
                     {realm.internationalizationEnabled && (locale?.supported?.length ?? 0) > 1 && (
                         <div className="darc-locale-select">

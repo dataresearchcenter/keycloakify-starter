@@ -1,12 +1,12 @@
-const DEFAULT_LOGO_URL = "https://openaleph.org/assets/Logo/RGB/Open-Aleph-Logo-RGB-Square-Neg.svg";
+const DEFAULT_LOGO_URL = "/darc-logo.svg";
 
 export default function DarcLogo({ size = 36, src = DEFAULT_LOGO_URL }: { size?: number; src?: string }) {
     return (
         <img
             src={src}
-            alt="OpenAleph"
+            alt="Darc Knights"
             width={size}
-            height={size}
+            height={size * 0.4}
             style={{ display: "block" }}
         />
     );
