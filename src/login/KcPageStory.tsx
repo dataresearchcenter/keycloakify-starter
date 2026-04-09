@@ -3,13 +3,10 @@ import type { KcContext } from "./KcContext";
 import KcPage from "./KcPage";
 import { createGetKcContextMock } from "keycloakify/login/KcContext";
 import type { KcContextExtension, KcContextExtensionPerPage } from "./KcContext";
-import { themeNames, kcEnvDefaults } from "../kc.gen";
+import { themeNames } from "../kc.gen";
 
 const kcContextExtension: KcContextExtension = {
-    themeName: themeNames[0],
-    properties: {
-        ...kcEnvDefaults
-    }
+    themeName: themeNames[0]
 };
 const kcContextExtensionPerPage: KcContextExtensionPerPage = {};
 

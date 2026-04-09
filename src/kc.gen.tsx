@@ -9,15 +9,9 @@
 
 import { lazy, Suspense, type ReactNode } from "react";
 
-export type ThemeName = "keycloakify-starter";
+export type ThemeName = "openaleph";
 
-export const themeNames: ThemeName[] = ["keycloakify-starter"];
-
-export type KcEnvName = never;
-
-export const kcEnvNames: KcEnvName[] = [];
-
-export const kcEnvDefaults: Record<KcEnvName, string> = {};
+export const themeNames: ThemeName[] = ["openaleph"];
 
 /**
  * NOTE: Do not import this type except maybe in your entrypoint.
