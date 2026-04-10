@@ -377,6 +377,153 @@
     justify-content: center;
 }
 
+/* ── TOTP/2FA Setup ──────────────────────────────────────────────────── */
+
+.darc-totp-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+}
+
+.darc-totp-step {
+    margin-bottom: calc(var(--grid) * 3);
+    padding: calc(var(--grid) * 2);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    position: relative;
+    counter-increment: step;
+}
+
+.darc-totp-step::before {
+    content: counter(step);
+    position: absolute;
+    top: calc(var(--grid) * -1);
+    left: calc(var(--grid) * 2);
+    background: var(--color-accent);
+    color: white;
+    width: calc(var(--grid) * 2);
+    height: calc(var(--grid) * 2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.darc-totp-step-title {
+    margin: 0 0 calc(var(--grid) * 1.5) 0;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.darc-totp-apps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.darc-totp-apps li {
+    margin-bottom: calc(var(--grid) * 0.5);
+    font-size: 13px;
+}
+
+.darc-totp-apps a {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin: 0 calc(var(--grid) * 0.5);
+}
+
+.darc-totp-apps a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+.darc-qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--grid) * 2);
+}
+
+.darc-qr-code {
+    background: white;
+    padding: calc(var(--grid) * 1);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    height: auto;
+}
+
+.darc-qr-fallback {
+    text-align: center;
+    max-width: 400px;
+}
+
+.darc-qr-fallback-text {
+    margin: 0 0 calc(var(--grid) * 1) 0;
+    color: var(--color-text-muted);
+    font-size: 13px;
+}
+
+.darc-secret-key {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: calc(var(--grid) * 1);
+}
+
+.darc-secret-key-label {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: calc(var(--grid) * 0.5);
+}
+
+.darc-secret-key-value {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    word-break: break-all;
+    user-select: all;
+}
+
+.darc-totp-form {
+    margin-top: calc(var(--grid) * 1);
+}
+
+.darc-input--centered {
+    text-align: center;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+}
+
+.darc-form-actions {
+    display: flex;
+    gap: calc(var(--grid) * 1);
+    margin-top: calc(var(--grid) * 2);
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .darc-form-actions {
+        flex-direction: column;
+    }
+    
+    .darc-qr-container {
+        gap: calc(var(--grid) * 1);
+    }
+    
+    .darc-secret-key-value {
+        font-size: 12px;
+    }
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────── */
 
 @media (max-width: 480px) {

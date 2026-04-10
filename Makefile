@@ -11,7 +11,7 @@ fclean: clean
 	rm -rf node_modules node_modules/.cache
 
 build:
-	npm run build
+	npm run build-keycloak-theme
 
 storybook:
 	npm run storybook
