@@ -10,6 +10,7 @@ import LoginResetPassword from "./pages/LoginResetPassword";
 import LoginVerifyEmail from "./pages/LoginVerifyEmail";
 import LoginOtp from "./pages/LoginOtp";
 import Error from "./pages/Error";
+import LoginConfigTotp from "./pages/LoginConfigTotp";
 
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
@@ -71,6 +72,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
                     case "login-otp.ftl":
                         return (
                             <LoginOtp
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
+                    case "login-config-totp.ftl":
+                        return (
+                            <LoginConfigTotp
                                 kcContext={kcContext}
                                 i18n={i18n}
                                 classes={classes}
