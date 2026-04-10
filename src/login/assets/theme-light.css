@@ -28,7 +28,7 @@
   --color-surface: #1e1e1e;
   --color-text: #f0f0f0;
   --color-text-muted: var(--darc-gray-500);
-  --color-border: #2e2e2e;
+  --color-border: var(--darc-gray-600);
   --color-accent: #7a9cbd;
   --color-accent-hover: #8aaccd;
   --color-accent-active: #6a8cad;

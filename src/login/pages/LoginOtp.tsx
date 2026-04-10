@@ -42,12 +42,14 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                     </label>
                     <input
                         id="otp"
-                        className={`darc-input${messagesPerField.existsError("totp") ? " darc-input--error" : ""}`}
+                        className={`darc-input darc-input--centered${messagesPerField.existsError("totp") ? " darc-input--error" : ""}`}
                         name="otp"
                         type="text"
                         autoComplete="one-time-code"
                         autoFocus
                         inputMode="numeric"
+                        placeholder="000000"
+                        maxLength={6}
                     />
                     {messagesPerField.existsError("totp") && (
                         <span className="darc-field-error">
