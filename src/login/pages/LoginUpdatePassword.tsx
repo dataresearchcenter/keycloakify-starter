@@ -12,14 +12,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
     return (
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("updatePasswordTitle")}
-            displayInfo={false}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("updatePasswordTitle")} displayInfo={false}>
             <form action={url.loginAction} method="post">
                 <div className="darc-form-group">
                     <label className="darc-label" htmlFor="password-new">

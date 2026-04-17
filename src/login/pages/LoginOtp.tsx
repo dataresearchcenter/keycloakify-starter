@@ -8,14 +8,7 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
     const { msg } = i18n;
 
     return (
-        <Template 
-            kcContext={kcContext} 
-            i18n={i18n} 
-            doUseDefaultCss={false} 
-            classes={{}} 
-            headerNode={msg("doLogIn")}
-            displayInfo={true}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("doLogIn")} displayInfo={true}>
             <form action={url.loginAction} method="post">
                 {otpLogin.userOtpCredentials.length > 1 && (
                     <div className="darc-form-group">

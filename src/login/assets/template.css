@@ -483,7 +483,8 @@
 }
 
 .darc-secret-key-value {
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+        "Courier New", monospace;
     font-size: 14px;
     color: var(--color-text);
     background: transparent;
@@ -498,7 +499,8 @@
 
 .darc-input--centered {
     text-align: center;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+        "Courier New", monospace;
     font-size: 18px;
     letter-spacing: 0.2em;
 }
@@ -514,11 +516,11 @@
     .darc-form-actions {
         flex-direction: column;
     }
-    
+
     .darc-qr-container {
         gap: calc(var(--grid) * 1);
     }
-    
+
     .darc-secret-key-value {
         font-size: 12px;
     }

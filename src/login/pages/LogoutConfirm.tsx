@@ -8,14 +8,7 @@ export default function LogoutConfirm(props: PageProps<Extract<KcContext, { page
     const { msg } = i18n;
 
     return (
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("logoutConfirmTitle")}
-            displayInfo={false}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("logoutConfirmTitle")} displayInfo={false}>
             <div className="darc-logout-content">
                 <div className="darc-logout-message">
                     <p>{msg("logoutConfirmHeader")}</p>
@@ -33,7 +26,7 @@ export default function LogoutConfirm(props: PageProps<Extract<KcContext, { page
                             {msg("doLogout")}
                         </button>
                     </form>
-                    
+
                     <a href={url.loginRestartFlowUrl || "#"} className="darc-btn darc-btn--secondary">
                         {msg("doCancel")}
                     </a>
