@@ -8,22 +8,29 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
     const { msg } = i18n;
 
     return (
-        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("doLogIn")}>
+        <Template 
+            kcContext={kcContext} 
+            i18n={i18n} 
+            doUseDefaultCss={false} 
+            classes={{}} 
+            headerNode={msg("doLogIn")}
+            displayInfo={true}
+        >
             <form action={url.loginAction} method="post">
                 {otpLogin.userOtpCredentials.length > 1 && (
                     <div className="darc-form-group">
                         <label className="darc-label">{msg("loginChooseAuthenticator")}</label>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                             {otpLogin.userOtpCredentials.map(credential => (
-                                <label key={credential.id} className="darc-checkbox-group" style={{ cursor: "pointer" }}>
+                                <label key={credential.id} className="darc-radio-group">
                                     <input
                                         type="radio"
                                         name="selectedCredentialId"
                                         value={credential.id}
                                         defaultChecked={credential.id === otpLogin.selectedCredentialId}
-                                        style={{ accentColor: "var(--color-accent)" }}
+                                        className="darc-radio"
                                     />
-                                    <span className="darc-checkbox-label">{credential.userLabel}</span>
+                                    <span className="darc-radio-label">{credential.userLabel}</span>
                                 </label>
                             ))}
                         </div>

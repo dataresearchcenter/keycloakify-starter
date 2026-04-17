@@ -11,6 +11,8 @@ import LoginVerifyEmail from "./pages/LoginVerifyEmail";
 import LoginOtp from "./pages/LoginOtp";
 import Error from "./pages/Error";
 import LoginConfigTotp from "./pages/LoginConfigTotp";
+import LoginUpdatePassword from "./pages/LoginUpdatePassword";
+import LogoutConfirm from "./pages/LogoutConfirm";
 
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
@@ -89,9 +91,29 @@ export default function KcPage(props: { kcContext: KcContext }) {
                                 doUseDefaultCss={false}
                             />
                         );
+                    case "login-update-password.ftl":
+                        return (
+                            <LoginUpdatePassword
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
                     case "error.ftl":
                         return (
                             <Error
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
+                    case "logout-confirm.ftl":
+                        return (
+                            <LogoutConfirm
                                 kcContext={kcContext}
                                 i18n={i18n}
                                 classes={classes}
