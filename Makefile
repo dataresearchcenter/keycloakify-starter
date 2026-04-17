@@ -12,6 +12,8 @@ fclean: clean
 
 build:
 	npm run build-keycloak-theme
+	cd dist_keycloak && mv keycloak-theme-for-kc-all-other-versions.jar darc.jar
+	cd dist_keycloak && rm -f keycloak-theme-for-kc-22-to-25.jar
 
 storybook:
 	npm run storybook

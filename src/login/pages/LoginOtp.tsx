@@ -8,14 +8,6 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
     const { msg } = i18n;
 
     return (
-<<<<<<< HEAD
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("doLogIn")}
-=======
         <Template 
             kcContext={kcContext} 
             i18n={i18n} 
@@ -23,7 +15,6 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
             classes={{}} 
             headerNode={msg("doLogIn")}
             displayInfo={true}
->>>>>>> 853020b (add update pw and confirm logout pages, minor changes)
         >
             <form action={url.loginAction} method="post">
                 {otpLogin.userOtpCredentials.length > 1 && (
