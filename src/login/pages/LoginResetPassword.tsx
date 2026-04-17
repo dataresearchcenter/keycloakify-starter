@@ -20,11 +20,7 @@ export default function LoginResetPassword(props: PageProps<Extract<KcContext, {
             <form action={url.loginAction} method="post">
                 <div className="darc-form-group">
                     <label className="darc-label" htmlFor="username">
-                        {!realm.loginWithEmailAllowed
-                            ? msg("username")
-                            : !realm.registrationEmailAsUsername
-                              ? msg("usernameOrEmail")
-                              : msg("email")}
+                        {!realm.loginWithEmailAllowed ? msg("username") : !realm.registrationEmailAsUsername ? msg("usernameOrEmail") : msg("email")}
                     </label>
                     <input
                         id="username"

@@ -8,14 +8,7 @@ export default function LoginVerifyEmail(props: PageProps<Extract<KcContext, { p
     const { msg } = i18n;
 
     return (
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("emailVerifyTitle")}
-            displayMessage={false}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("emailVerifyTitle")} displayMessage={false}>
             <p style={{ marginTop: 0, color: "var(--color-text-muted)", fontSize: "14px", lineHeight: 1.6 }}>
                 {msg("emailVerifyInstruction1", user?.email ?? "")}
             </p>

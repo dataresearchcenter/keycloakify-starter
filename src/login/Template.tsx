@@ -68,9 +68,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         </div>
                     )}
 
-                    <div className="darc-card-body">
-                        {children}
-                    </div>
+                    <div className="darc-card-body">{children}</div>
 
                     {socialProvidersNode && (
                         <div className="darc-social-providers">
@@ -81,16 +79,17 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         </div>
                     )}
 
-                    {displayInfo && infoNode && (
-                        <div className="darc-card-info">
-                            {infoNode}
-                        </div>
-                    )}
+                    {displayInfo && infoNode && <div className="darc-card-info">{infoNode}</div>}
                 </div>
             </main>
 
             <footer className="darc-footer">
-                <span>Made with ❤️ by <a href="https://dataresearchcenter.org" target="_blank" rel="noreferrer">DARC</a></span>
+                <span>
+                    Made with ❤️ by{" "}
+                    <a href="https://dataresearchcenter.org" target="_blank" rel="noreferrer">
+                        DARC
+                    </a>
+                </span>
             </footer>
         </div>
     );

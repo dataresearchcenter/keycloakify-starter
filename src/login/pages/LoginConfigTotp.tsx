@@ -8,23 +8,34 @@ export default function LoginConfigTotp(props: PageProps<Extract<KcContext, { pa
     const { msg } = i18n;
 
     return (
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("loginTotpTitle")}
-            displayInfo={false}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("loginTotpTitle")} displayInfo={false}>
             <ol className="darc-totp-steps">
                 <li className="darc-totp-step">
                     <p className="darc-totp-step-title">{msg("loginTotpStep1")}</p>
                     <ul className="darc-totp-apps">
                         <li>
-                            <strong>FreeOTP</strong>: <a href="https://freeotp.github.io/" target="_blank" rel="noopener">Android</a> / <a href="https://apps.apple.com/us/app/freeotp/id872559395" target="_blank" rel="noopener">iPhone</a>
+                            <strong>FreeOTP</strong>:{" "}
+                            <a href="https://freeotp.github.io/" target="_blank" rel="noopener">
+                                Android
+                            </a>{" "}
+                            /{" "}
+                            <a href="https://apps.apple.com/us/app/freeotp/id872559395" target="_blank" rel="noopener">
+                                iPhone
+                            </a>
                         </li>
                         <li>
-                            <strong>Google Authenticator</strong>: <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Android</a> / <a href="https://apps.apple.com/us/app/google-authenticator/id388497605" target="_blank" rel="noopener">iPhone</a>
+                            <strong>Google Authenticator</strong>:{" "}
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Android
+                            </a>{" "}
+                            /{" "}
+                            <a href="https://apps.apple.com/us/app/google-authenticator/id388497605" target="_blank" rel="noopener">
+                                iPhone
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -32,11 +43,7 @@ export default function LoginConfigTotp(props: PageProps<Extract<KcContext, { pa
                 <li className="darc-totp-step">
                     <p className="darc-totp-step-title">{msg("loginTotpStep2")}</p>
                     <div className="darc-qr-container">
-                        <img 
-                            src={`data:image/png;base64,${totp.totpSecretQrCode}`} 
-                            alt="QR Code" 
-                            className="darc-qr-code"
-                        />
+                        <img src={`data:image/png;base64,${totp.totpSecretQrCode}`} alt="QR Code" className="darc-qr-code" />
                         <div className="darc-qr-fallback">
                             <p className="darc-qr-fallback-text">{msg("loginTotpUnableToScan")}</p>
                             <div className="darc-secret-key">
@@ -71,17 +78,11 @@ export default function LoginConfigTotp(props: PageProps<Extract<KcContext, { pa
                         {mode && <input type="hidden" id="mode" name="mode" value={mode} />}
 
                         <div className="darc-form-actions">
-                            <button 
-                                className="darc-btn darc-btn--primary" 
-                                type="submit"
-                            >
+                            <button className="darc-btn darc-btn--primary" type="submit">
                                 {msg("doSubmit")}
                             </button>
                             {!isAppInitiatedAction && (
-                                <a 
-                                    className="darc-btn darc-btn--secondary" 
-                                    href={url.loginUrl}
-                                >
+                                <a className="darc-btn darc-btn--secondary" href={url.loginUrl}>
                                     {msg("doCancel")}
                                 </a>
                             )}

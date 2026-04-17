@@ -8,14 +8,7 @@ export default function Error(props: PageProps<Extract<KcContext, { pageId: "err
     const { msg } = i18n;
 
     return (
-        <Template
-            kcContext={kcContext}
-            i18n={i18n}
-            doUseDefaultCss={false}
-            classes={{}}
-            headerNode={msg("errorTitle")}
-            displayMessage={false}
-        >
+        <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("errorTitle")} displayMessage={false}>
             <div className="darc-alert darc-alert--error" style={{ margin: 0, marginBottom: "20px" }}>
                 <span dangerouslySetInnerHTML={{ __html: message.summary }} />
             </div>

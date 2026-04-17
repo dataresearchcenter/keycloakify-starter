@@ -23,11 +23,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                 social?.providers && social.providers.length > 0 ? (
                     <div className="darc-social-buttons">
                         {social.providers.map(provider => (
-                            <a
-                                key={provider.alias}
-                                href={provider.loginUrl}
-                                className="darc-btn darc-btn--secondary darc-btn--social"
-                            >
+                            <a key={provider.alias} href={provider.loginUrl} className="darc-btn darc-btn--secondary darc-btn--social">
                                 {provider.displayName}
                             </a>
                         ))}
@@ -44,11 +40,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             }
         >
             {realm.password && (
-                <form
-                    onSubmit={() => setIsLoginButtonDisabled(true)}
-                    action={url.loginAction}
-                    method="post"
-                >
+                <form onSubmit={() => setIsLoginButtonDisabled(true)} action={url.loginAction} method="post">
                     {!usernameHidden && (
                         <div className="darc-form-group">
                             <label className="darc-label" htmlFor="username">
@@ -122,11 +114,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
 
                     <input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
 
-                    <button
-                        className="darc-btn darc-btn--primary"
-                        type="submit"
-                        disabled={isLoginButtonDisabled}
-                    >
+                    <button className="darc-btn darc-btn--primary" type="submit" disabled={isLoginButtonDisabled}>
                         {msg("doLogIn")}
                     </button>
                 </form>
