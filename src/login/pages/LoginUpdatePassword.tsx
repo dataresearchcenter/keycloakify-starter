@@ -6,7 +6,7 @@ import type { I18n } from "../i18n";
 export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, { pageId: "login-update-password.ftl" }>, I18n>) {
     const { kcContext, i18n, Template } = props;
     const { url, messagesPerField, isAppInitiatedAction } = kcContext;
-    const { msg } = i18n;
+    const { msg, msgStr } = i18n;
 
     const [showPassword, setShowPassword] = useState(false);
     const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
@@ -39,7 +39,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
                             type="button"
                             className="darc-input-toggle"
                             onClick={() => setShowPassword(v => !v)}
-                            aria-label={showPassword ? msg("hidePassword") : msg("showPassword")}
+                            aria-label={showPassword ? msgStr("hidePassword") : msgStr("showPassword")}
                         >
                             {showPassword ? "hide" : "show"}
                         </button>
@@ -68,7 +68,7 @@ export default function LoginUpdatePassword(props: PageProps<Extract<KcContext, 
                             type="button"
                             className="darc-input-toggle"
                             onClick={() => setShowPasswordConfirm(v => !v)}
-                            aria-label={showPasswordConfirm ? msg("hidePassword") : msg("showPassword")}
+                            aria-label={showPasswordConfirm ? msgStr("hidePassword") : msgStr("showPassword")}
                         >
                             {showPasswordConfirm ? "hide" : "show"}
                         </button>

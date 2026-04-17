@@ -8,7 +8,13 @@ import { themeNames } from "../kc.gen";
 const kcContextExtension: KcContextExtension = {
     themeName: themeNames[0]
 };
-const kcContextExtensionPerPage: KcContextExtensionPerPage = {};
+const kcContextExtensionPerPage: KcContextExtensionPerPage = {
+    "logout-confirm.ftl": {
+        logoutConfirm: {
+            sessionState: "default-session-state"
+        }
+    }
+};
 
 export const { getKcContextMock } = createGetKcContextMock({
     kcContextExtension,

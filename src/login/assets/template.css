@@ -580,6 +580,26 @@
   }
 }
 
+/* ── Logout ──────────────────────────────────────────────────────────── */
+
+.darc-logout-content {
+    text-align: center;
+}
+
+.darc-logout-message {
+    margin-bottom: calc(var(--grid) * 3);
+}
+
+.darc-logout-message p {
+    margin: 0 0 calc(var(--grid) * 1) 0;
+    color: var(--color-text);
+}
+
+.darc-logout-message strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────── */
 
 @media (max-width: 480px) {
