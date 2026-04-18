@@ -63,15 +63,26 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                         <span>Try another way</span>
                     </div>
                     <div className="darc-auth-selections">
-                        {auth.authenticationSelections.map((selection, index) => (
-                            <form key={index} action={url.loginAction} method="post" style={{ display: "inline-block", margin: "4px" }}>
-                                <input type="hidden" name="authenticationExecution" value={selection.authExecId} />
-                                <button type="submit" className="darc-btn darc-btn--secondary darc-auth-selection">
-                                    <span className="darc-auth-selection-name">{selection.displayName}</span>
-                                    {selection.helpText && <span className="darc-auth-selection-help">{selection.helpText}</span>}
-                                </button>
-                            </form>
-                        ))}
+                        {auth.authenticationSelections.map((selection, index) => {
+                            const getIcon = (iconClass: string) => {
+                                if (iconClass.includes("WebAuthn") || iconClass.includes("webauthn")) return "🔐";
+                                if (iconClass.includes("OTP") || iconClass.includes("otp")) return "📱";
+                                return "🔑";
+                            };
+
+                            return (
+                                <form key={index} action={url.loginAction} method="post">
+                                    <input type="hidden" name="authenticationExecution" value={selection.authExecId} />
+                                    <button type="submit" className="darc-auth-selection">
+                                        <div className="darc-auth-selection-icon">{getIcon(selection.iconCssClass)}</div>
+                                        <div className="darc-auth-selection-content">
+                                            <span className="darc-auth-selection-name">{selection.displayName}</span>
+                                            {selection.helpText && <span className="darc-auth-selection-help">{selection.helpText}</span>}
+                                        </div>
+                                    </button>
+                                </form>
+                            );
+                        })}
                     </div>
                 </div>
             )}

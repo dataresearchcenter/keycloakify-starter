@@ -546,43 +546,229 @@
     font-weight: 600;
 }
 
+/* ── WebAuthn/Passkey Page ──────────────────────────────────────────────── */
+
+.darc-passkey-header {
+    text-align: center;
+    margin-bottom: calc(var(--grid) * 3);
+}
+
+.darc-passkey-icon {
+    font-size: 3rem;
+    margin-bottom: calc(var(--grid) * 1);
+}
+
+.darc-passkey-header h1 {
+    margin: 0 0 calc(var(--grid) * 1) 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.darc-passkey-subtitle {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.darc-webauthn-form {
+    width: 100%;
+}
+
+.darc-hidden-form {
+    display: none;
+}
+
+.darc-authenticator-list {
+    margin-bottom: calc(var(--grid) * 3);
+}
+
+.darc-authenticator-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 calc(var(--grid) * 1.5) 0;
+    color: var(--color-text);
+}
+
+.darc-authenticator-grid {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--grid) * 1);
+}
+
+.darc-authenticator-item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--grid) * 1.5);
+    padding: calc(var(--grid) * 1.5);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+.darc-authenticator-icon {
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+.darc-authenticator-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.darc-authenticator-label {
+    font-weight: 500;
+    margin-bottom: calc(var(--grid) * 0.3);
+    color: var(--color-text);
+}
+
+.darc-authenticator-transport {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: calc(var(--grid) * 0.3);
+}
+
+.darc-authenticator-created {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+.darc-webauthn-action {
+    text-align: center;
+}
+
+.darc-passkey-visual {
+    margin-bottom: calc(var(--grid) * 3);
+}
+
+.darc-passkey-animation {
+    position: relative;
+    display: inline-block;
+    margin-bottom: calc(var(--grid) * 2);
+}
+
+.darc-passkey-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: passkey-pulse 2s infinite;
+}
+
+.darc-passkey-icon-large {
+    font-size: 2.5rem;
+    display: block;
+    padding: calc(var(--grid) * 1);
+}
+
+.darc-passkey-instruction {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+@keyframes passkey-pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0;
+    }
+}
+
 /* ── Auth Alternatives ──────────────────────────────────────────────────── */
 
 .darc-auth-alternatives {
     margin-top: calc(var(--grid) * 3);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-border);
     padding-top: calc(var(--grid) * 2);
+    text-align: center;
+}
+
+.darc-auth-alternatives .darc-divider {
+    margin-bottom: calc(var(--grid) * 2);
+}
+
+.darc-auth-alternatives .darc-divider span {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    opacity: 0.8;
 }
 
 .darc-auth-selections {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--grid) * 0.8);
-    margin-top: calc(var(--grid) * 1.5);
+    gap: calc(var(--grid) * 1);
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .darc-auth-selection {
+    display: flex !important;
+    align-items: center !important;
+    gap: calc(var(--grid) * 1.5) !important;
     text-align: left !important;
     padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--color-border) !important;
+    background: var(--color-surface) !important;
+    border-radius: var(--border-radius) !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    width: 100% !important;
 }
 
 .darc-auth-selection:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: var(--color-accent-subtle) !important;
+    border-color: var(--color-accent) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.darc-auth-selection-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.darc-auth-selection-content {
+    flex: 1;
+    min-width: 0;
 }
 
 .darc-auth-selection-name {
     display: block;
     font-weight: 500;
-    margin-bottom: calc(var(--grid) * 0.5);
+    margin-bottom: calc(var(--grid) * 0.3);
+    color: var(--color-text);
 }
 
 .darc-auth-selection-help {
     display: block;
-    font-size: 0.9em;
-    opacity: 0.7;
+    font-size: 0.85em;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+    line-height: 1.3;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────── */

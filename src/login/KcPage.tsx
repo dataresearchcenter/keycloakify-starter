@@ -13,6 +13,7 @@ import Error from "./pages/Error";
 import LoginConfigTotp from "./pages/LoginConfigTotp";
 import LoginUpdatePassword from "./pages/LoginUpdatePassword";
 import LogoutConfirm from "./pages/LogoutConfirm";
+import WebauthnAuthenticate from "./pages/WebauthnAuthenticate";
 
 const UserProfileFormFields = lazy(
     () => import("keycloakify/login/UserProfileFormFields")
@@ -114,6 +115,16 @@ export default function KcPage(props: { kcContext: KcContext }) {
                     case "logout-confirm.ftl":
                         return (
                             <LogoutConfirm
+                                kcContext={kcContext}
+                                i18n={i18n}
+                                classes={classes}
+                                Template={Template}
+                                doUseDefaultCss={false}
+                            />
+                        );
+                    case "webauthn-authenticate.ftl":
+                        return (
+                            <WebauthnAuthenticate
                                 kcContext={kcContext}
                                 i18n={i18n}
                                 classes={classes}
