@@ -4,7 +4,7 @@ import type { I18n } from "../i18n";
 
 export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "login-otp.ftl" }>, I18n>) {
     const { kcContext, i18n, Template } = props;
-    const { url, otpLogin, messagesPerField } = kcContext;
+    const { url, otpLogin, messagesPerField, auth } = kcContext;
     const { msg } = i18n;
 
     return (
@@ -56,6 +56,25 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                     {msg("doLogIn")}
                 </button>
             </form>
+
+            {auth?.authenticationSelections && auth.authenticationSelections.length > 1 && (
+                <div className="darc-auth-alternatives">
+                    <div className="darc-divider">
+                        <span>Try another way</span>
+                    </div>
+                    <div className="darc-auth-selections">
+                        {auth.authenticationSelections.map((selection, index) => (
+                            <form key={index} action={url.loginAction} method="post" style={{ display: "inline-block", margin: "4px" }}>
+                                <input type="hidden" name="authenticationExecution" value={selection.authExecId} />
+                                <button type="submit" className="darc-btn darc-btn--secondary darc-auth-selection">
+                                    <span className="darc-auth-selection-name">{selection.displayName}</span>
+                                    {selection.helpText && <span className="darc-auth-selection-help">{selection.helpText}</span>}
+                                </button>
+                            </form>
+                        ))}
+                    </div>
+                </div>
+            )}
         </Template>
     );
 }
