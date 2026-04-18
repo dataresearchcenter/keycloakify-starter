@@ -36,14 +36,14 @@ export default function WebauthnAuthenticate(props: PageProps<Extract<KcContext,
                     </div>
                 ) : undefined
             }
-            headerNode={
-                <div className="darc-passkey-header">
-                    <div className="darc-passkey-icon">🔐</div>
-                    <h1>{msg("webauthn-login-title") || "Sign in with passkey"}</h1>
-                    <p className="darc-passkey-subtitle">Use your fingerprint, face, or device PIN to sign in securely</p>
-                </div>
-            }
+            headerNode={msg("webauthn-login-title") || "Sign in with passkey"}
         >
+            <div className="darc-passkey-header">
+                <div className="darc-passkey-icon">🔐</div>
+                <h1>Sign in with passkey</h1>
+                <p className="darc-passkey-subtitle">Use your fingerprint, face, or device PIN to sign in securely</p>
+            </div>
+
             <div className="darc-webauthn-form">
                 <form id="webauth" action={url.loginAction} method="post">
                     <input type="hidden" id="clientDataJSON" name="clientDataJSON" />
@@ -102,13 +102,12 @@ export default function WebauthnAuthenticate(props: PageProps<Extract<KcContext,
                 <div className="darc-webauthn-action">
                     <div className="darc-passkey-visual">
                         <div className="darc-passkey-animation">
-                            <div className="darc-passkey-pulse"></div>
                             <div className="darc-passkey-icon-large">🔐</div>
                         </div>
                         <p className="darc-passkey-instruction">Touch your security key or use biometric authentication</p>
                     </div>
 
-                    <button id={authButtonId} type="button" className="darc-btn darc-btn--primary darc-btn--large" autoFocus>
+                    <button id={authButtonId} type="button" className="darc-btn darc-btn--primary" autoFocus>
                         {msgStr("webauthn-doAuthenticate") || "Sign in with passkey"}
                     </button>
                 </div>
