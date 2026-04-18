@@ -76,8 +76,8 @@ export default function LoginOtp(props: PageProps<Extract<KcContext, { pageId: "
                                     <button type="submit" className="darc-auth-selection">
                                         <div className="darc-auth-selection-icon">{getIcon(selection.iconCssClass)}</div>
                                         <div className="darc-auth-selection-content">
-                                            <span className="darc-auth-selection-name">{selection.displayName}</span>
-                                            {selection.helpText && <span className="darc-auth-selection-help">{selection.helpText}</span>}
+                                            <span className="darc-auth-selection-name">{msg(selection.displayName as any)}</span>
+                                            {selection.helpText && <span className="darc-auth-selection-help">{msg(selection.helpText as any)}</span>}
                                         </div>
                                     </button>
                                 </form>
