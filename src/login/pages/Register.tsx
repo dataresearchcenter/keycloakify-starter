@@ -1,7 +1,8 @@
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 
 export default function Register(
     props: PageProps<Extract<KcContext, { pageId: "register.ftl" }>, I18n> & {
@@ -9,9 +10,16 @@ export default function Register(
         doMakeUserConfirmPassword: boolean;
     }
 ) {
-    const { kcContext, i18n, Template, UserProfileFormFields, doMakeUserConfirmPassword } = props;
+    const { kcContext, i18n, Template, UserProfileFormFields, doMakeUserConfirmPassword, classes } = props;
     const { url, recaptchaRequired, recaptchaSiteKey } = kcContext;
     const { msg } = i18n;
+    
+    const [, setIsFormSubmittable] = useState(false);
+    
+    const { kcClsx } = getKcClsx({
+        doUseDefaultCss: false,
+        classes: classes || {}
+    });
 
     return (
         <Template kcContext={kcContext} i18n={i18n} doUseDefaultCss={false} classes={{}} headerNode={msg("registerTitle")} displayInfo={false}>
@@ -20,7 +28,8 @@ export default function Register(
                     <UserProfileFormFields
                         kcContext={kcContext}
                         i18n={i18n}
-                        doUseDefaultCss={false}
+                        kcClsx={kcClsx}
+                        onIsFormSubmittableValueChange={setIsFormSubmittable}
                         doMakeUserConfirmPassword={doMakeUserConfirmPassword}
                     />
                 </Suspense>
