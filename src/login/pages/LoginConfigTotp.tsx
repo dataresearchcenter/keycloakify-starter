@@ -4,7 +4,7 @@ import type { I18n } from "../i18n";
 
 export default function LoginConfigTotp(props: PageProps<Extract<KcContext, { pageId: "login-config-totp.ftl" }>, I18n>) {
     const { kcContext, i18n, Template } = props;
-    const { url, isAppInitiatedAction, totp, mode } = kcContext;
+    const { url, isAppInitiatedAction, totp, mode, messagesPerField } = kcContext;
     const { msg } = i18n;
 
     return (
@@ -76,6 +76,26 @@ export default function LoginConfigTotp(props: PageProps<Extract<KcContext, { pa
 
                         <input type="hidden" id="totpSecret" name="totpSecret" value={totp.totpSecret} />
                         {mode && <input type="hidden" id="mode" name="mode" value={mode} />}
+
+                        <div className="darc-form-group">
+                            <label className="darc-label" htmlFor="userLabel">
+                                {msg("loginTotpDeviceName")}
+                                {totp.otpCredentials && totp.otpCredentials.length >= 1 && <span className="darc-required"> *</span>}
+                            </label>
+                            <input
+                                type="text"
+                                id="userLabel"
+                                name="userLabel"
+                                autoComplete="off"
+                                className={`darc-input${messagesPerField.existsError("userLabel") ? " darc-input--error" : ""}`}
+                                placeholder="My Device"
+                            />
+                            {messagesPerField.existsError("userLabel") && (
+                                <span className="darc-field-error">
+                                    <span dangerouslySetInnerHTML={{ __html: messagesPerField.get("userLabel") }} />
+                                </span>
+                            )}
+                        </div>
 
                         <div className="darc-form-actions">
                             <button className="darc-btn darc-btn--primary" type="submit">
